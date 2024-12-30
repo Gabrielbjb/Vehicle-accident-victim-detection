@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .file-input-wrapper {
+        position: relative;
+        background: #fff;
+        padding: 70px 26px;
+        border-radius: 10px;
+      }
+
+      p{
+        color: white;
+      }
+
+      .file-input-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+        color: #888888;
+        pointer-events: none;
+        /* Membuat teks tidak dapat diklik */
+      }
+
+      .file-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      input[class="hp"] {
+        display: none;
+      }
+
+      button {
+        background-color: #0eff00;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body style="
+    background-image: url(https://raw.githubusercontent.com/Gabrielbjb/grape-leaf-detection-ui/5a0f32e7ed5e796b7dc3bd5694c7b9405f6b32cb/templates/assets/left.27pyYBXv.svg), url(https://github.com/Gabrielbjb/grape-leaf-detection-ui/blob/main/templates/assets/bg.1pDdxN2P.svg), linear-gradient( rgba(31, 31, 31 , 1.7), rgba(31, 31, 31 , 0.7) ),url(https://raw.githubusercontent.com/Gabrielbjb/Vehicle-accident-victim-detection/refs/heads/main/accident%20detection/templates/assets/ATCS-SUBANG-scaled.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+">
+    <div style="display: flex;flex-direction: column;">
+      <div style="
+    margin: 7% 0% 0% 0%;
+
+">
+        <div style="
+    color: #273347;
+    text-align: center;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-size: 31px;
+">
+          <p style="
+    font-weight: bold;
+    font-size: 56px;
+    -: 1em;
+    margin-block-end: 0;">Deteksi Kecelakaan Kendaraan</p>
+          <p style="font-size: 18px;font-weight: bold;">Sebuah projek kecil yang dapat mendeteksi pengendara yang megalami kecelakaan kendaraan berdasarkan foto dan video          </p>
+        </div>
+        <form action="/selesai" method="post" enctype="multipart/form-data">
+          <div style="
+    padding-left: 10%;
+    padding-right: 10%;
+">
+            <div class="file-input-wrapper">
+              <input type="file" accept="image/*,video/*" name="new-image-button" id="new-image-button" class="file-input">
+              <span class="file-input-label" id="file-input-label">Unggah Gambar atau Video</span>
+            </div>
+          </div>
+          <div style="
+    padding-left: 10%;
+    padding-right: 10%;
+">
+            <div style="
+    padding-top: 2%;
+">
+              <button type="button2" style="border-radius: 3px; color: #000000; font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; font-weight: bold;">Unggah <i class="fas fa-cloud-upload-alt"></i>
+              </button>
+              <input class="hp" type="file" accept="image/*" capture="camera" name="new-image" id="new-image">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    </div>
+    <script>
+      document.getElementById('new-image-button').addEventListener('change', function() {
+        var label = document.getElementById('file-input-label');
+        var input = this;
+        if (input.files && input.files.length > 0) {
+          label.textContent = String(input.files[0].name);
+        } else {
+          label.textContent = 'Masukan File';
+        }
+        document.getElementById('new-image').value = "";
+      });
+      document.getElementById('new-image').addEventListener('change', function() {
+        var label = document.getElementById('file-input-label');
+        var input = this;
+        if (input.files && input.files.length > 0) {
+          label.textContent = String(input.files[0].name);
+        } else {
+          label.textContent = 'Masukan File';
+        }
+        document.getElementById('new-image-button').value = "";
+      });
+    </script>
+  </body>
+</html>

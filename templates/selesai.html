@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .file-input-wrapper {
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .file-input-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+        color: #888888;
+        pointer-events: none;
+        /* Membuat teks tidak dapat diklik */
+      }
+
+      .file-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      @media (max-width: 996px) {
+        .layartulisan {
+          width: 100% !important;
+          text-align: center;
+        }
+
+        .layargambar {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      button {
+        background-color: #454545;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body style="
+    background-image: url(https://raw.githubusercontent.com/Gabrielbjb/grape-leaf-detection-ui/539a5860b7e134976a8fba6c6b90d00ad233d191/templates/assets/left.2mKT9-VN.svg), linear-gradient( rgba(255, 89, 89 , 1.7), rgba(255, 255, 255, 0.7) ),url(https://raw.githubusercontent.com/Gabrielbjb/Vehicle-accident-victim-detection/refs/heads/main/accident%20detection/templates/assets/ATCS-SUBANG-scaled.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+">
+    <div style="display: flex;flex-direction: column;">
+      <div style="
+    margin: 5% 0% 0% 0%;
+">
+        <div style="
+    color: #273347;
+    text-align: center;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-size: 31px;
+">
+          <p style="
+    font-weight: bold;
+    font-size: 56px;
+    -: 1em;
+    margin-block-end: 0;
+    margin-top: 0;
+">{{ judul }}</p>
+          <p style="font-size: 18px;font-weight: bold;">{{ desk }}</p>
+        </div>
+        <div style="
+    padding-left: 10%;
+    padding-right: 10%;
+">
+          <div class="file-input-wrapper">
+            <video id="video" style="max-width: 60%;display: block;margin: auto;" controls>
+              <source src="{{ url_for('static', filename='selesai/' + filename) }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
+            <img id="gambar" class="layargambar" src="{{ url_for('static', filename='selesai/' + filename) }}" style="max-width: 100%; border-radius: 6%;
+">
+            <div class="layartulisan" style="
+    padding-left: 25px;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; margin: auto; padding: 10px; width: 63%;
+">
+            </div>
+          </div>
+        </div>
+        <div style="padding-left: 10%; padding-right: 10%; max-width: fit-content; margin-left: auto; margin-right: auto;">
+          <div style="
+    padding-top: 2%;
+">
+            <a href="/">
+              <button srtype="button2" style="
+              border-radius: 3px;
+              color: white;
+              font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+              font-weight: bold;
+          ">Kembali</button>
+                    </a>
+                    <a id="unduh" href="{{ url_for('static', filename='selesai/' + filename) }}" download="proposed_file_name">
+                      <button srtype="button2" style="
+              border-radius: 3px;
+              color: white;
+              font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+              font-weight: bold;
+              background-color: #09a300;
+          ">Unduh</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var video = document.getElementById('video');
+      var gambar = document.getElementById('gambar');
+      var filename = "{{ url_for('static', filename='selesai/' + filename) }}";
+      var ext = filename.split('.').pop();
+      document.getElementById('unduh').download = filename;
+      if (ext == 'mp4') {
+        gambar.style.display = 'none';
+      } else {
+        video.style.display = 'none';
+      }
+    </script>
+  </body>
+</html>
