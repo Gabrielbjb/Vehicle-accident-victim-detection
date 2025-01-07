@@ -8,4 +8,4 @@ Since it's web-based, you can easily access it on any smartphone with a browser!
 Don't have a phone? Don't worry! This project also supports laptops and PCs!
 
 ## Dataset
-For legal reasons, we CANNOT share that dataset as it originates from the government. You will need to obtain the dataset on your own. by contacting Badan Kesatuan Bangsa dan Politik and Dinas Perhubungan.
+For legal reasons, we CANNOT share that dataset as it originates from the government. You will need to obtain the dataset on your own. by contacting Badan Kesatuan Bangsa and Politik and Dinas Perhubungan.
